@@ -1,0 +1,25 @@
+.carousel-item img {
+  object-fit: cover;
+  height: 70vh;
+}
+
+#carousel {
+  position: relative;
+  height: 70vh;
+}
+
+#carousel .overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+}
+
+#carousel .overlay .container,
+#carousel .overlay .container .row {
+  height: 100%;
+}
