@@ -130,4 +130,7 @@ a.card:hover {
     margin: 0;
     font-weight: bold;
   }
+  #oracion p {
+    font-size: 1rem;
+  }
 }
