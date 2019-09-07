@@ -154,6 +154,8 @@
         var _hour = _minute * 60;
         var _day = _hour * 24;
         var timer;
+        var firstAnimation = true;
+        var enableAnimation = true;
 
         function _singleOrPlural(text, value){
                 const txt = `${value < 10? '0':''}${value} ${text}`;
@@ -186,10 +188,21 @@
 
         var observer = new IntersectionObserver(function(entries) {
             // isIntersecting is true when element and viewport are overlapping
-            // isIntersecting is false when element and viewport don't overlap
+            // isIntersecting is false when element and viewport don't overlap          
+
             if(entries[0].isIntersecting === true){
-                console.log('Element has just become visible in screen');
-                if (! entries[0].target.classList.contains('animated')){
+
+                if (firstAnimation){
+                    firstAnimation = false;
+
+                    if (entries[0].target.id === 'mesa'){
+                        enableAnimation = false;
+                        console.log(entries[0].target.id === 'mesa');
+                        console.log(entries[0].target.id);                        
+                    }
+                }
+
+                if (enableAnimation && !entries[0].target.classList.contains('animated')){
                     entries[0].target.classList.add('animated', 'fadeInUp', 'slow');
                 }
             }
@@ -199,7 +212,6 @@
             // isIntersecting is true when element and viewport are overlapping
             // isIntersecting is false when element and viewport don't overlap
             if(entries[0].isIntersecting === true){
-                console.log('Element has just become visible in screen');
                 if (! entries[0].target.classList.contains('animated')){
                     entries[0].target.classList.add('animated', 'pulse', 'slow', 'delay-3');
                 }
