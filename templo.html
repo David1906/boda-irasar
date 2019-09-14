@@ -21,10 +21,10 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
-                        <a class="nav-link" href="./templo.html">Direccion Cermonia Religiosa<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="./templo.html">Dirección Ceremonia Religiosa<span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" href="./evento.html">Direccion Salon de Eventos</a>
+                        <a class="nav-link" href="./evento.html">Dirección Salón de Eventos</a>
                         </li>
                         <li class="nav-item">
                         <a class="nav-link" href="./index.html#mesa">Mesa de Regalos</a>
@@ -34,18 +34,26 @@
             </nav>
         </header>    
         <article class=" p-0">
-            <div id="carousel" class="carousel slide" data-ride="carousel" data-interval="5000">
+            <div id="carousel" class="carousel slide carousel-fade" data-ride="carousel" data-interval="5000">
                 <div class="carousel-inner">                
                    <div class="carousel-item">
                         <img src="https://www.ntrguadalajara.com/evidimg/2017-07-28_11-07-32___9888.jpg"
                         class="d-block w-100" alt="...">
                     </div>
-                    <div class="carousel-item active">
+                    <div class="carousel-item">
+                        <img src="./src/images/templo2_1.jpeg" 
+                        class="d-block w-100 " alt="...">
+                    </div>
+                    <div class="carousel-item">
                         <img src="https://scontent-dfw5-2.xx.fbcdn.net/v/t1.0-9/14291780_177881305973401_6624010044415652599_n.jpg?_nc_cat=105&_nc_oc=AQlLnZTOsVuAUhjsQTnsTcbf2ZiGOd3KZR0FU_dXLGivHgSWN5WEBv4cuYq4j6v4s4t4muQvvFgVmEHneq-FsX9E&_nc_ht=scontent-dfw5-2.xx&oh=10b3a81585913101ff0641c4e71cbe57&oe=5DCDFE2B" 
                         class="d-block w-100" alt="...">
                     </div>
-                    <div class="carousel-item">
+                    <div class="carousel-item active">
                         <img src="https://scontent-dfw5-2.xx.fbcdn.net/v/t31.0-8/14257478_178133742614824_1223000269086088355_o.jpg?_nc_cat=108&_nc_oc=AQmZBKHVg9NgkSJnwOn4os5AbHFTlsL9KposuS9fyKUinqtKiY6xd7UV9wH2P9155Au7sLUVIfU-fxv_5e55Uuw5&_nc_ht=scontent-dfw5-2.xx&oh=dfe4c70832a3ea8f660c3abaf89ae235&oe=5E05B8FA" 
+                        class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="./src/images/templo1_1.jpeg" 
                         class="d-block w-100" alt="...">
                     </div>
                 </div>
@@ -64,16 +72,16 @@
         <article class="text-center animated fadeInUp">
             <img class="mt--3" src="./src/images/flower.png" height="200" alt="">
             <h1 class="mt--3">Irasar & Carlos</h1>
-            <p class="d-none d-block">Gracias por asistir a nuestra boda, 
+            <p class="d-none d-block mx-2">Gracias por asistir a nuestra boda, 
                 es un gran honor para nosotros tenerte entre nuestros invitados.
-                <br>A continuacion te compartimos la direccion donde se llevara a cabo nuestra celebracion religiosa.
-                <br>Te esperamos!
+                <br>A continuación te compartimos la dirección donde se llevará a cabo nuestra celebración religiosa.
+                <br>¡Te esperamos!
             </p>
         </article>
-        <div class="p-0 mt-4">
+        <div class="p-0 mt-4 animated fadeInUp">
             <h1 class="title">Ceremonia Religiosa</h1>
         </div>
-        <article class="mt-4 col-10 offset-1 text-center">
+        <article class="mt-4 col-10 offset-1 text-center animated fadeInUp">
             <div id="mapa" class="card mb-3 shadow">
                 <div class="row no-gutters">
                     <div class="col-md-6">
@@ -102,7 +110,7 @@
         </footer>    
     </div>
     <script>
-        var end = new Date('10/26/2019 7:30 PM');
+        var end = new Date('10/26/2019 6:00 PM');
 
         var _second = 1000;
         var _minute = _second * 60;
@@ -124,7 +132,8 @@
             if (distance < 0) {
 
                 clearInterval(timer);
-                document.getElementById('countdown').innerHTML = 'EXPIRED!';
+                var text = `${_singleOrPlural('día', 0)}  ${_singleOrPlural('hora', 0)}  ${_singleOrPlural('minuto', 0)}  y ${_singleOrPlural('segundo', 0)} `;
+                document.getElementById('countdown').innerHTML = text;
 
                 return;
             }
@@ -133,7 +142,7 @@
             var minutes = Math.floor((distance % _hour) / _minute);
             var seconds = Math.floor((distance % _minute) / _second);
 
-            var text = `${_singleOrPlural('dia', days)}  ${_singleOrPlural('hora', hours)}  ${_singleOrPlural('minuto', minutes)}  y ${_singleOrPlural('segundo', seconds)} `;
+            var text = `${_singleOrPlural('día', days)}  ${_singleOrPlural('hora', hours)}  ${_singleOrPlural('minuto', minutes)}  y ${_singleOrPlural('segundo', seconds)} `;
 
             document.getElementById('countdown').innerHTML = text;
         }
@@ -144,7 +153,7 @@
             if(entries[0].isIntersecting === true){
                 console.log('Element has just become visible in screen');
                 if (! entries[0].target.classList.contains('animated')){
-                    entries[0].target.classList.add('animated', 'pulse', 'slow');
+                    entries[0].target.classList.add('animated', 'pulse');
                 }
             }
         }, { threshold: [1] });
